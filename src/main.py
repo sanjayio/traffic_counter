@@ -1,12 +1,16 @@
 import logging
-from typing import Dict, List
+from lib.utils import list_parse_map
 from models.input import Input
 from models.input_row import InputRow
 
-def list_to_map(input: List) -> Dict:
-  iterator = iter(input)
-  res_dct = dict(zip(iterator, iterator))
-  return res_dct
+logging.basicConfig(format="%(levelname)s - %(message)s", level=logging.DEBUG)
+logging.info("Starting Traffic Counter...")
 
 sample_data = "2021-12-01T05:00:00 5".split(" ")
-print(list_to_map(sample_data))
+sample_map = list_parse_map(sample_data)
+
+sample_row = InputRow(**sample_map)
+sample_output = Input(**{"windows": [sample_row]})
+logging.debug(sample_output)
+
+logging.info("Stopping Traffic Counter...")
