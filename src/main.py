@@ -1,7 +1,8 @@
 import logging
-from lib.utils import list_parse_map, read_files
+from lib.utils import read_files
 from models.input import Input
-from models.input_row import InputRow
+from transformers.input_row_transformer import row_to_input_row
+from transformers.input_transformer import input_rows_to_input
 
 DATA_DIR = "./data/"
 
@@ -11,12 +12,10 @@ logging.info("Starting Traffic Counter...")
 line_rows = []
 data_lines = read_files(dir=DATA_DIR)
 for line in data_lines:
-  line_data = line.split(" ")
-  line_map = list_parse_map(line_data)
-  line_row = InputRow(**line_map)
+  line_row = row_to_input_row(line)
   line_rows.append(line_row)
 
-line_output = Input(**{"windows": line_rows})
+line_output = input_rows_to_input(line_rows)
 logging.debug(line_output)
 
 logging.info("Stopping Traffic Counter...")
