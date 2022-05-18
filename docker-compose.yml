@@ -9,4 +9,15 @@ services:
       - .:/app
     working_dir: /app
     entrypoint: ./support/entrypoint
+  
+  dev:
+    extends:
+      file: docker-compose.yml
+      service: base
     command: bash
+
+  run:
+    extends:
+      file: docker-compose.yml
+      service: base
+    command: ["python3", "src/main.py"]
