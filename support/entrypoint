@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+echo "Updating pip dependencies if needed."
+pip install --quiet --no-cache-dir --requirement ./support/requirements.txt
+
+exec "$@"
