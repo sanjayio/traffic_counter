@@ -21,3 +21,9 @@ services:
       file: docker-compose.yml
       service: base
     command: ["python3", "src/main.py"]
+  
+  test:
+    extends:
+      file: docker-compose.yml
+      service: base
+    command: ["pytest", "test"]
