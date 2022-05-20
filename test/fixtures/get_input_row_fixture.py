@@ -1,4 +1,4 @@
-from models.input_row import InputRow
+from src.models.input_row import InputRow
 
 
 def get_input_row(dt, count) -> InputRow:
