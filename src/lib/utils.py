@@ -1,7 +1,6 @@
 from ast import parse
 from typing import Dict, List
 from datetime import datetime
-from models.input_row import InputRow
 import logging
 from pathlib import Path
 

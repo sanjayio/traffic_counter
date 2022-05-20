@@ -1,6 +1,6 @@
 from typing import List
-from models.input import Input
-from models.input_row import InputRow
+from src.models.input import Input
+from src.models.input_row import InputRow
 
 
 def input_rows_to_input(

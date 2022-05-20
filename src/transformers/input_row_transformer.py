@@ -1,5 +1,5 @@
-from lib.utils import list_parse_map
-from models.input_row import InputRow
+from src.lib.utils import list_parse_map
+from src.models.input_row import InputRow
 
 def row_to_input_row(
   row_str: str
