@@ -4,6 +4,7 @@ WORKDIR /app
 
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
+ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 RUN pip install --upgrade pip
 

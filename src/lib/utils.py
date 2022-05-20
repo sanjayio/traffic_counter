@@ -1,4 +1,3 @@
-from ast import parse
 from typing import Dict, List
 from datetime import datetime
 import logging
@@ -22,7 +21,7 @@ def list_parse_map(input: List) -> Dict:
   return res_dct
 
 
-def flatten(t):
+def flatten(t: List) -> List:
     return [item for sublist in t for item in sublist]
 
 
