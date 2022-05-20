@@ -1,8 +1,8 @@
 import logging
 from datetime import datetime
-from lib.utils import read_files
-from transformers.input_row_transformer import row_to_input_row
-from transformers.input_transformer import input_rows_to_input
+from src.lib.utils import read_files
+from src.transformers.input_row_transformer import row_to_input_row
+from src.transformers.input_transformer import input_rows_to_input
 
 logging.basicConfig(format="%(levelname)s - %(message)s", level=logging.DEBUG)
 
