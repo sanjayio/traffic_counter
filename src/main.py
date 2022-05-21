@@ -24,8 +24,8 @@ def main() -> None:
   logging.debug(f"A sequence of lines where each line contains a date (in yyyy-mm-dd format) and the number of cars seen on that day: \n {res}")
 
   # 3. The top 3 half hours with most cars, in the same format as the input file
-  sorted_list = sorted(data, key=lambda x: x.window_count, reverse=True)
-  top_3_sorted_list = sorted_list[:3]
+  sorted_by_count_list = sorted(data, key=lambda x: x.window_count, reverse=True)
+  top_3_sorted_list = sorted_by_count_list[:3]
   sorted_windows = []
   for window in top_3_sorted_list:
     sorted_windows.append(
@@ -34,14 +34,15 @@ def main() -> None:
   logging.debug(f"The top 3 half hours with most cars: {sorted_windows}")
 
   # 4. The 1.5 hour period with least cars (i.e. 3 contiguous half hour records)
-  lowest_count = sorted_list[0].window_count
+  sorted_by_dt_list = sorted(data, key=lambda x: x.window_datetime)
+  lowest_count = sorted_by_count_list[0].window_count
   curr_count = 0
   curr_trio = []
   lowest_trio = []
-  for i in range(len(sorted_list)):
-    for j in range(i, min(i + 3, len(sorted_list))):
-      curr_count += sorted_list[j].window_count
-      curr_trio.append(sorted_list[j].window_datetime.isoformat())
+  for i in range(len(sorted_by_dt_list)):
+    for j in range(i, min(i + 3, len(sorted_by_dt_list))):
+      curr_count += sorted_by_dt_list[j].window_count
+      curr_trio.append(sorted_by_dt_list[j].window_datetime.isoformat())
     if curr_count <= lowest_count:
       lowest_count = curr_count
       lowest_trio = curr_trio if len(curr_trio) == 3 else lowest_trio
