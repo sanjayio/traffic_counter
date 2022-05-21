@@ -1,5 +1,9 @@
 # Traffic Counter
 
+## Data Directory
+
+Add the data files in the `./data` directory. The files can be added in subfolders too, and will still be processed. 
+
 ## Running locally
 
 To run the program locally, run

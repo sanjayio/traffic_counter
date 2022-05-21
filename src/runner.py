@@ -71,8 +71,5 @@ class Runner:
       curr_trio = []
     return lowest_trio
 
-  
-    
-
   def __del__(self):
     logging.info("Stopping Traffic Counter...")
